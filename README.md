@@ -103,34 +103,33 @@ Connects to the fcgi responder at the specified network address with timeout. Se
 
 
 #### func (*FCGIClient) Get
-    func (this *FCGIClient) Get(p map[string]string) (resp *http.Response, err error)
+    func (client *FCGIClient) Get(p map[string]string) (resp *http.Response, err error)
 Get issues a GET request to the fcgi responder.
 
 #### func (*FCGIClient) Post
-    func (this *FCGIClient) Post(p map[string]string, bodyType string,
+    func (client *FCGIClient) Post(p map[string]string, bodyType string,
                                  body io.Reader, l int) (resp *http.Response, err error)
 Get issues a Post request to the fcgi responder. with request body in the format that bodyType specified
 
 #### func (*FCGIClient) PostFile
-    func (this *FCGIClient) PostFile(p map[string]string, data url.Values,
+    func (client *FCGIClient) PostFile(p map[string]string, data url.Values,
                                      file map[string]string) (resp *http.Response, err error)
 PostFile issues a POST to the fcgi responder in multipart(RFC 2046) standard, with form as a string key to a list values (url.Values), and/or with file as a string key to a list file path.
 
 #### func (*FCGIClient) PostForm
-    func (this *FCGIClient) PostForm(p map[string]string,
+    func (client *FCGIClient) PostForm(p map[string]string,
                                      data url.Values) (resp *http.Response, err error)
 PostForm issues a POST to the fcgi responder, with form as a string key to a list values (url.Values)
 
 #### func (*FCGIClient) Request
-    func (this *FCGIClient) Do(p map[string]string, req io.Reader) (r io.Reader, err error)
+    func (client *FCGIClient) Do(p map[string]string, req io.Reader) (r io.Reader, err error)
 Request returns a HTTP Response with Header and Body from fcgi responder
 
 #### func (*FCGIClient) Do
-    func (this *FCGIClient) Request(p map[string]string,
+    func (client *FCGIClient) Request(p map[string]string,
                                          req io.Reader) (resp *http.Response, err error)
 Do made the request and returns a io.Reader that translates the data read from fcgi responder out of fcgi packet before returning it.
 
 #### func (*FCGIClient) Close
-    func (this *FCGIClient) Close()
+    func (client *FCGIClient) Close()
 Close fcgi connnection
-
